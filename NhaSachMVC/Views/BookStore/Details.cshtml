@@ -1,0 +1,27 @@
+﻿@using NhaSachMVC.Models
+@model SACH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SÁCH</h2>
+<br />
+<div class="row">
+    <div class="offset-md-1 col-md-4">
+        <img style="width:100%" src="~/Images/@Model.Hinhminhhoa" />
+    </div>
+    <div class="col-md-6 details">
+        <h3>@Model.Tensach</h3>
+        <p style="text-align : justify">
+            <span style="font-weight: bold">Mô tả</span>
+        </p>
+        <p class="price">
+            Giá bán <span style="color:red; font-size: 32px">@Model.Dongia</span>
+        </p>
+
+        //đặt mua
+        <a class="btn btn-primary" href="@Url.Action("ThemSanPhamVaoGio","GioHang", new {MaSp = Model.Masach})">Đặt mua</a>
+    </div>
+</div>

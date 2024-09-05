@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <!-- active làm nổi bật lên -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">BOOK STORE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CONTACT</a>
+                </li>
+            </ul>
+            //thêm giỏ hàng
+            <div class="ml-auto">
+                @Html.Action("GioHangPartial", "GioHang")
+            </div>
+        </nav>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Action("LayChuDe", "BookStore")
+                @Html.Action("LayNhaXuatBan", "BookStore")
+            </div>
+            <div class="col-md-9">
+                <img style="width:100%;" src="~/Images/banner.jpg" alt="Banner" />
+                <div style="color:red; text-align:center; margin:15px 0;">
+                    SÁCH MỚI
+                </div>
+                @RenderBody()
+                <br />
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
